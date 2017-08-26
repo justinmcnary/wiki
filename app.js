@@ -2,7 +2,7 @@ let searchTerm = '';
 let state = [];
 const search = () => {
   $.ajax({
-    url: 'http://en.wikipedia.org/w/api.php',
+    url: 'https://en.wikipedia.org/w/api.php',
     dataType: 'jsonp',
     data: {
       action: 'opensearch',
