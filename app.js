@@ -12,10 +12,11 @@ const search = () => {
     success: function(data) {
       state = [];
       $('.content').html(`<div></div>`);
-      // console.log(data);
+      console.log(data);
       for (var i = 0; i < data.length; i++) {
         state.push({ title: data[1][i], text: data[2][i], link: data[3][i] });
       }
+      data[1].map;
       render();
       $('.search-term').val('');
     }
