@@ -27,6 +27,8 @@ body {
   width: 100px;
   opacity: .8;
   z-index: 999;
+  transform: none;
+  -webkit-transform: none;
 }
 
 .header h1 {
