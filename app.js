@@ -11,12 +11,21 @@ const search = () => {
     },
     success: function(data) {
       state = [];
+      // console.log(data);
       $('.content').html(`<div></div>`);
-      console.log(data);
-      for (var i = 0; i < data.length; i++) {
-        state.push({ title: data[1][i], text: data[2][i], link: data[3][i] });
+      let mapping = {
+        '1': 'title',
+        '2': 'content',
+        '3': 'link'
+      };
+      for (var i = 1; i < data.length; i++) {
+        data[i].map((itm, index) => {
+          if (!state[index]) {
+            state[index] = {};
+          }
+          state[index][mapping[i]] = itm;
+        });
       }
-      data[1].map;
       render();
       $('.search-term').val('');
     }
@@ -27,7 +36,7 @@ const search = () => {
 const render = () => {
   state.forEach(val => {
     $('.content').prepend(
-      `<div class="item"><h3><a target="_blank" href=${val.link}>${val.title}</a></h3><p>${val.text}</div>`
+      `<div class="item"><h3><a target="_blank" href=${val.link}>${val.title}</a></h3><p>${val.content}</div>`
     );
   });
 };
